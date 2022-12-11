@@ -1,0 +1,41 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="row">
+        <h1 class="text-center">Edit Ground</h1>
+        <div class="col-6 offset-md-3">
+            <form action="/grounds/<%=ground._id%>?_method=PUT" method="post" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input type="text" class="form-control" id="title" value="<%=ground.title%>" name="ground[title]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" value="<%=ground.location%>" name="ground[location]" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="price">Ground Price</label>
+
+                    <div class="input-group ">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="Price" aria-describedby="price-label" name="ground[price]" value="<%=ground.price%>" required>
+                        <div class="valid-feedback">
+                            Looks Good!
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="ground[description]" required><%=ground.description%></textarea>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-info">Update Ground</button>
+                </div>
+            </form>
+
+
+            <a href="/grounds/<%=ground._id%>">Back to Grounds</a>
+        </div>
+    </div>

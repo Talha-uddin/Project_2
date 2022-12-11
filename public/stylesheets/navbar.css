@@ -1,0 +1,41 @@
+#nav-top-of-page {
+    position: fixed;
+    width: 100%;
+}
+
+#nav-top-of-page__container {}
+
+#nav--top__website-name a {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.navbar-right a {
+    color: white;
+}
+
+#nav--top__link--right a {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#nav--top__link-home,
+#nav--top__link-projects,
+#nav--top__link-contact a {
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.navbar .navbar-nav>li>a:hover {
+    background-color: transparent;
+    /* this is the square color when we hover on the link */
+    color: yellow;
+    /* this is the text color when we hover the right nav */
+}
+
+.navbar .navbar-nav>li>a:focus {
+    background-color: transparent;
+    /* this is the square color when we have clicked on the link */
+    color: grey;
+    /* this is the text color when we have clicked on the text in the the right nav */
+}

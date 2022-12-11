@@ -1,0 +1,48 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<% layout('layouts/boilerplate') %>
+
+    <h1>All Product</h1>
+
+    <div>
+        <a href="eshops/new">Add New Product</a>
+    </div>
+    <ul>
+        <% for(let eshop of eshops) {%>
+            <div class="container bootstrap snippets bootdey">
+                <div class="row">
+                    <div class="col-md-9">
+
+                        <div class="col-md-6 col-sm-6">
+                            <div class="store-item">
+                                <div class="store-item-rating text-warning">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="store-item-image">
+                                    <a href="#">
+                                        <img src="https://images.unsplash.com/photo-1616124619460-ff4ed8f4683c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8amVyc2V5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" class="img-responsive">
+                                    </a>
+                                </div>
+                                <div class="store-item-info clearfix">
+                                    <span class="store-item-price themed-color-dark pull-right">$ <%=eshop.price %>
+                                    </span>
+                                    <a href="#"><strong><a href="/eshops/<%= eshop._id %> ">
+                                                <%= eshop.title %>
+                                            </a></strong>
+                                    </a><br>
+                                    <small><i class="fa fa-shopping-cart text-muted"></i>
+                                        <a href="#" class="text-muted">Add to cart</a></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <% } %>
+    </ul>

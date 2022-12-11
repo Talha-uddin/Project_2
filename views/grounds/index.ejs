@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate') %>
+
+    <h1>All Grounds</h1>
+    <div>
+        <a href="/grounds/new">Add Ground</a>
+    </div>
+    <% for(let ground of grounds) {%>
+        <a href=></a>
+        <div class="card mb-3">
+            <div class="row">
+                <img src="<%= ground.image %>" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= ground.title %>
+                    </h5>
+                    <p class="card-text">
+                        <%=ground.description %>
+                    </p>
+                    <p class="card-text"><small class="text-muted">
+                            <%=ground.location %>
+                        </small></p>
+                    <a class="btn btn-primary" href="/grounds/<%=ground._id %>">View <%=ground.title %> </a>
+                </div>
+            </div>
+        </div>
+        <% } %>
