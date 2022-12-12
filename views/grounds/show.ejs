@@ -16,21 +16,26 @@
                     <li class="list-group-item text-muted">
                         <%= ground.location %>
                     </li>
+                    <li class="list-group-item">Submitted by
+                        <%= ground.author.username %>
+                    </li>
                     <li class="list-group-item">
                         $
                         <%= ground.price %>
                     </li>
                     <li class="list-group-item">A third item</li>
                 </ul>
-                <div class="card-body">
-                    <a class="card-link btn btn-warning" href="/grounds/<%=ground._id%>/edit" class="card-link">Edit</a>
-                    <form class="d-inline" action="/grounds/<%=ground._id%>?_method=DELETE" method="post">
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
-                <div class="card-footer text-muted">
-                    2 days ago
-                </div>
+                <% if(currentUser && ground.author.equals(currentUser._id)){ %>
+                    <div class="card-body">
+                        <a class="card-link btn btn-warning" href="/grounds/<%=ground._id%>/edit" class="card-link">Edit</a>
+                        <form class="d-inline" action="/grounds/<%=ground._id%>?_method=DELETE" method="post">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
+                        <div class="card-footer text-muted">
+                            2 days ago
+                        </div>
             </div>
 
 

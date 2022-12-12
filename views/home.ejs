@@ -5,11 +5,221 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coffee House - Homepage</title>
+    <link rel="stylesheet" href="/stylesheets/home.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <h1>Home! WHITE SOXXXS</h1>
+
+    <div class="container spacing">
+        <div class="nav navbar-expand navbar row top-bottom" role="navigation">
+            <div class="navbar-brand col justify-content-start">
+                <a href="/">White SOXX</a>
+            </div>
+            <ul class="nav nav-pills col-4 justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="/grounds">Grounds</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/eshops">Shop</a>
+                </li>
+                <li class="nav-item underline">
+                    <a class="nav-link" href="/">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');">
+                </div>
+                <div class="carousel-caption">
+                    <h2 class="animated fadeInLeft">Book the Venue</h2>
+                    <p class="animated fadeInUp">GO find and book the types of sports grounds where you wanna play</p>
+                    <p class="animated fadeInUp"><a href="/grounds" class="btn btn-transparent btn-rounded btn-large">
+                            Book</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('https://images.unsplash.com/photo-1635710064660-0f6460a92c21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');">
+                </div>
+                <div class="carousel-caption">
+                    <h2 class="animated fadeInDown">Shop</h2>
+                    <p class="animated fadeInUp">Go find the sports cloth and shoes of your favourite team or players .
+                    </p>
+                    <p class="animated fadeInUp"><a href="/eshops" class="btn btn-transparent btn-rounded btn-large">
+                            Shop</a></p>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://www.marchettidesign.net/demo/optimized-bootstrap/campus.jpg');">
+                </div>
+                <div class="carousel-caption">
+                    <h2 class="animated fadeInRight">Caption Animation</h2>
+                    <p class="animated fadeInRight">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <p class="animated fadeInRight"><a href="#" class="btn btn-transparent btn-rounded btn-large">Learn
+                            More</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </div>
+
+
+
+
+    <!-- <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">
+                The fastest way to a great art install.
+            </h1>
+            <h3 class="lead pad-btn">
+                Book an art installer today.
+            </h3>
+            <p class="lead">
+                <div class="btn btn-primary btn-lg" href="/" id="a">
+                    I'm an art installer
+                </div>
+                <a class="btn btn-primary btn-lg" href="/">Book now</a>
+            </p>
+        </div>
+    </div> -->
+    <div class="container">
+        <div class="section">
+            <div class="h5 row justify-content-center pad-btn">
+                Find what you're looking for
+            </div>
+            <div class="card-deck">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            Ground
+                        </h3>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Home of, well, everything.
+                        </h6>
+                        <a class="btn btn-primary" href="/grounds">Find The Ground</a>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-subtitle mb-6 text-muted">
+                            Updated 1hr ago
+                        </p>
+                    </div>
+                </div>
+                <div class="card" style="width: 20rem;">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            Shop
+                        </h3>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Buy the things you like.
+                        </h6>
+                        <a class="btn btn-primary" href="/eshops">Shop</a>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-subtitle mb-6 text-muted">
+                            Updated 50 min ago
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            Houston
+                        </h3>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            This one seems great.
+                        </h6>
+                        <a class="btn btn-primary" href="/">Find An Installer</a>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-subtitle mb-6 text-muted">
+                            Updated 10 min ago
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <p class="lead row col justify-content-center">
+            White Soxx is a sports based service and e commerce organization which looking for higher customer satisfaction and set a great value for its competitor. We will provide our cutomer some great looking highly recommended sports venue's. We also selling
+            some great sports wear which following the current trend and as well as the quality. So, bring it on come and share your thought and desire with us and we will look forward to give you some best service. Roll on the field, set the bar high!
+        </p>
+    </div>
+    <!-- <div class="container">
+        <div class="section clients">
+            <h5 class="row justify-content-center pad-btn">
+                Trusted by these industry veterans
+            </h5>
+            <h6 class="row d-flex justify-content-around">
+                <div class="img-thumbnail col-3">aaa</div>
+                <div class="img-thumbnail col-3">aaa</div>
+                <div class="img-thumbnail col-3">aaa</div>
+                <div class="img-thumbnail col-3">aaa</div>
+            </h6>
+        </div>
+    </div> -->
+    <div class="container">
+        <div class="footer">
+            <hr class="my-4">
+            <div class="row">
+                <ul class="nav col">
+                    <li class="nav-item">
+                        <h6 class="nav-link mb-4">
+                            All rights reserved. White SOXX.
+                        </h6>
+                    </li>
+                </ul>
+                <div class="justify-content-end">
+                    <ul class="nav col">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Privacy Stuff</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </hr>
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript" src="/javascripts/home.jss"></script>
 </body>
 
 </html>

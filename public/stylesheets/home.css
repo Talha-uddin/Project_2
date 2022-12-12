@@ -1,0 +1,153 @@
+.nav.navbar-expand.navbar-light.bg-light {
+    padding: 30px;
+}
+
+a {
+    color: grey;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.pad-btn {
+    padding-bottom: 50px;
+}
+
+.pad-top {
+    padding-top: 50px;
+}
+
+.footer {
+    padding: 50px 0px;
+}
+
+.jumbotron {
+    background: url(https://images.unsplash.com/photo-1585834567627-62b9392423a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.section {
+    padding: 100px 0px;
+}
+
+img {
+    background-image: 30% 20% cover no-repeat;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.top-bottom {
+    padding: 25px 25px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.carousel,
+.item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+    background: #000;
+}
+
+.carousel-caption {
+    padding-bottom: 80px;
+}
+
+h2 {
+    font-size: 60px;
+}
+
+p {
+    padding: 10px
+}
+
+
+/* Background images are set within the HTML using inline CSS, not here */
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    opacity: 0.6;
+}
+
+
+/**
+ * Button
+ */
+
+.btn-transparent {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-transparent:hover {
+    background-color: #fff;
+}
+
+.btn-rounded {
+    border-radius: 70px;
+}
+
+.btn-large {
+    padding: 11px 45px;
+    font-size: 18px;
+}
+
+
+/**
+ * Change animation duration
+ */
+
+.animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fadeInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100px, 0, 0);
+        transform: translate3d(100px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(100px, 0, 0);
+        transform: translate3d(100px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInRight {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+}

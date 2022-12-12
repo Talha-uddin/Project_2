@@ -12,16 +12,28 @@
             <li id="nav--top__link-projects" class="nav-item">
                 <a class="nav-link" href="/grounds"> Grounds </a>
             </li>
+            <li id="nav--top__link-projects" class="nav-item">
+                <a class="nav-link" href="/eshops"> Shop </a>
+            </li>
             <li id="nav--top__link-contact" class="nav-item">
-                <a class="nav-link" href="/contact"> Contact me </a>
+                <a class="nav-link" href="/contact"> Contact us </a>
             </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-            <li id="nav--top__link--right"><a href="#"><span class="glyphicon glyphicon-log-in"> </span> Sign up
-                </a></li>
-            <li id="nav--top__link--right"><a href="#"><span class="glyphicon glyphicon-user"> </span> Log in </a>
-            </li>
+            <% if(!currentUser){ %>
+                <li id="nav--top__link--right"><a href="/register"><span class="glyphicon glyphicon-log-in"> </span>
+                        Sign up
+                    </a></li>
+                <li id="nav--top__link--right"><a href="/login"><span class="glyphicon glyphicon-user"> </span> Log in
+                    </a>
+                </li>
+                <% } else{%>
+                    <li id="nav--top__link--right"><a href="/logout"><span class="glyphicon glyphicon-user"> </span> Log
+                            Out
+                        </a>
+                    </li>
+                    <% } %>
         </ul>
 
     </div>

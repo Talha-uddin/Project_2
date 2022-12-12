@@ -19,6 +19,7 @@ const seedDB = async() => {
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const gd = new Ground({
+            author: '63978d2ed8665821c4c912b0',
             location: `${cities[random1000].city},${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             image: `https://source.unsplash.com/random?indoor-ground,${i}`,
