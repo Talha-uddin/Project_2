@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Book = require('./books');
 const Review = require('./review')
 const Schema = mongoose.Schema;
 
@@ -6,10 +7,14 @@ const Schema = mongoose.Schema;
 
 const GroundsSchema = new Schema({
     title: String,
-    image: String,
+    images: [{
+        url: String,
+        filename: String
+    }],
     price: Number,
     description: String,
     location: String,
+
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -17,7 +22,11 @@ const GroundsSchema = new Schema({
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: 'Review'
-    }]
+    }],
+    books: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Book',
+    }],
 });
 
 GroundsSchema.post('findOneAndDelete', async function(doc) {

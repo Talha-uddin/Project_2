@@ -7,7 +7,15 @@ const UserSchema = new Schema({
         type: String,
         required: true,
         unique: true
-    }
+    },
+    avatar: String,
+    firstName: String,
+    lastName: String,
+    phone: Number,
+    street: String,
+    city: String,
+    state: String,
+    zipCode: Number
 });
 
 UserSchema.plugin(passportLocalMongoose);

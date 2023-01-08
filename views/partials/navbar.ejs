@@ -20,16 +20,43 @@
             </li>
         </ul>
 
+
+
+
         <ul class="nav navbar-nav navbar-right">
             <% if(!currentUser){ %>
                 <li id="nav--top__link--right"><a href="/register"><span class="glyphicon glyphicon-log-in"> </span>
                         Sign up
                     </a></li>
-                <li id="nav--top__link--right"><a href="/login"><span class="glyphicon glyphicon-user"> </span> Log in
+                <li id="nav--top__link--right"><a href="/login"><span class="glyphicon glyphicon-user">
+                        </span> Log
+                        in
                     </a>
                 </li>
                 <% } else{%>
-                    <li id="nav--top__link--right"><a href="/logout"><span class="glyphicon glyphicon-user"> </span> Log
+
+                    <!-- <li id="nav--top__link--right"><a href="/users/<%=user.id%>"><span class="glyphicon glyphicon-user">
+                            </span>View Profile</a>
+                    </li> -->
+                    <li id="nav--top__link--right" class="dropdown glyphicon" style="align-items: center;">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" style="background-color:transparent; text-align: center;">
+                            User
+                        </button>
+                        <div class="dropdown-menu" style="background-color: rgba(0, 0, 0, 0.485);">
+                            <a class="dropdown-item glyphicon glyphicon-user" href="/users/<%=user.id%>">View
+                                Profile</a>
+                            <a class="dropdown-item glyphicon glyphicon-shopping-cart" href="/carts">View Cart(
+                                <% if(typeof cart !=="undefined" ) {%>
+                                    <%=cart.length %>
+                                        <% } else{%>
+                                            <% } %>
+                                                )
+                            </a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li id="nav--top__link--right"><a href="/logout"><span class="glyphicon glyphicon-user"> </span>
+                            Log
                             Out
                         </a>
                     </li>

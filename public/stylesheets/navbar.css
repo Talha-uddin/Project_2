@@ -39,3 +39,8 @@
     color: grey;
     /* this is the text color when we have clicked on the text in the the right nav */
 }
+
+button:focus {
+    background-color: #002ead;
+    transition: 0.7s;
+}

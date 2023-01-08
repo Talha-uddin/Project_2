@@ -24,7 +24,16 @@ const seedDB = async() => {
             title: `${sample(descriptors)} ${sample(places)}`,
             image: `https://source.unsplash.com/random?indoor-ground,${i}`,
             description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
-            price
+            price,
+            images: [{
+                    url: 'https://res.cloudinary.com/dglikuuvz/image/upload/v1673164557/White-Soxs/zhg11mend1o1ixm2i3pr.png',
+                    filename: 'White-Soxs/zhg11mend1o1ixm2i3pr',
+                },
+                {
+                    url: 'https://res.cloudinary.com/dglikuuvz/image/upload/v1673164560/White-Soxs/sxzrbdoalp3hguyry2uj.png',
+                    filename: 'White-Soxs/sxzrbdoalp3hguyry2uj',
+                }
+            ],
         })
         await gd.save();
     }

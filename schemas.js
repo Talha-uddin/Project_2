@@ -17,3 +17,14 @@ module.exports.reviewSchema = Joi.object({
         body: Joi.string().required()
     }).required()
 })
+
+
+module.exports.eshopSchema = Joi.object({
+    e_shop: Joi.object({
+        title: Joi.string(),
+        price: Joi.number(),
+        image: Joi.string(),
+        description: Joi.string(),
+
+    })
+})
