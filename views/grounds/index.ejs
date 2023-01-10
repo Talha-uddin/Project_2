@@ -12,10 +12,9 @@
         <a href="/grounds/new">Add Ground</a>
     </div>
     <% for(let ground of grounds) {%>
-        <a href=></a>
         <div class="card mb-3">
             <div class="row">
-                <img src="<%= ground.image %>" class="card-img-top" alt="">
+                <img src="<%= ground.images[0].url %>" class="card-img-top" alt="">
                 <div class="card-body">
                     <h5 class="card-title">
                         <%= ground.title %>
@@ -26,7 +25,7 @@
                     <p class="card-text"><small class="text-muted">
                             <%=ground.location %>
                         </small></p>
-                    <a class="btn btn-primary" href="/grounds/<%=ground._id %>">View <%=ground.title %> </a>
+                    <a class="btn btn-primary" href="/grounds/<%=ground._id%>">View <%=ground.title %> </a>
                 </div>
             </div>
         </div>

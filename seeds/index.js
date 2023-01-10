@@ -15,7 +15,7 @@ const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async() => {
     await Ground.deleteMany({});
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 6; i++) {
         const random1000 = Math.floor(Math.random() * 1000);
         const price = Math.floor(Math.random() * 20) + 10;
         const gd = new Ground({
@@ -25,6 +25,14 @@ const seedDB = async() => {
             image: `https://source.unsplash.com/random?indoor-ground,${i}`,
             description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
             price,
+            geometry: {
+                type: 'Point',
+                coordinates: [
+                    cities[random1000].longitude,
+                    cities[random1000].latitude
+                ]
+
+            },
             images: [{
                     url: 'https://res.cloudinary.com/dglikuuvz/image/upload/v1673164557/White-Soxs/zhg11mend1o1ixm2i3pr.png',
                     filename: 'White-Soxs/zhg11mend1o1ixm2i3pr',

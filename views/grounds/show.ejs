@@ -8,6 +8,7 @@
     <div class="container mt-5 mb-3">
         <div class="row">
             <div class="col-6 ">
+
                 <div id="groundCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <% ground.images.forEach((img,i)=> {%>
@@ -48,7 +49,7 @@
                             <%= ground.author.username %>
                         </li>
                         <li class="list-group-item">
-                            $
+                            tk: 
                             <%= ground.price %>
                         </li>
                         <li class="list-group-item">A third item</li>
@@ -60,6 +61,20 @@
                             <form class="d-inline" action="/grounds/<%=ground._id%>?_method=DELETE" method="post">
                                 <button class="btn btn-danger">Delete</button>
                             </form>
+
+                            <form action="/grounds/<%=ground._id%>/wishlist" method="post" novalidate>
+                                <p>
+
+                                    <input type="hidden" name="wishlist[groundId]" value="<%=ground._id%>">
+                                    <input type="hidden" name="wishlist[title]" value="<%=ground.title%>">
+                                    <input type="hidden" name="wishlist[price]" value="<%=ground.price%>">
+                                    <input type="hidden" name="wishlist[description]" value="<%=ground.description%>">
+                                    <input type="hidden" name="wishlist[images]" value="<%=ground.images[0].url%>">
+
+                                    <button class="btn btn-round btn-danger" type="submit" name="submit"><i
+                                            class="glyphicon glyphicon-heart"></i>
+                                        Add to Wishlist</button>
+                                </p>
                         </div>
                         <% } %>
                             <a class="btn btn-primary" href="/grounds/<%=ground.id%>/books">Book Now</a>
@@ -72,6 +87,7 @@
             </div>
 
             <div class="col-6">
+                <div id='map' style='width: 400px; height: 300px;'></div>
                 <% if(currentUser){ %>
                     <h2>Leave a review</h2>
                     <form action="/grounds/<%= ground._id%>/reviews" method="post" class="mb-3 validated-form" novalidate>
@@ -156,3 +172,10 @@
             </div>
         </div>
     </div> -->
+
+    <script>
+        const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+        const ground = <%-JSON.stringify(ground)%>
+    </script>
+
+    <script src="/javascripts/showPageMap.js"></script>

@@ -6,16 +6,9 @@ const catchAsync = require('../utils/catchAsync');
 const User = require('../models/user');
 const { isLoggedIn } = require('../midddleware');
 
-router.get('/cart', async(req, res) => {
-    const carts = await Cart.find({});
-    res.render('carts/index', { carts });
-})
 
-// router.get('/cart/:id', isLoggedIn, catchAsync(async(req, res) => {
-//     const user = await User.findById(req.params.id);
 
-//     res.render('users/userProfile', { user });
-// }))
+
 
 
 router.post('/eshops/:id/carts', isLoggedIn, async(req, res) => {
@@ -24,17 +17,20 @@ router.post('/eshops/:id/carts', isLoggedIn, async(req, res) => {
     eshop.carts.push(cart);
     await cart.save();
     await eshop.save();
-    res.redirect('/cart');
+    res.redirect('/carts');
 })
 
-module.exports = router;
+router.get('/carts', async(req, res) => {
+    const eshop = await E_shop.find({});
+    const cart = await Cart.find({});
+    res.render('carts/index', { cart, eshop });
+})
 
-// router.post('/', validateReview, catchAsync(async(req, res) => {
-//     const ground = await Ground.findById(req.params.id)
-//     const review = new Review(req.body.review)
-//     ground.reviews.push(review);
-//     await review.save();
-//     await ground.save();
-//     req.flash('success', 'Created new review')
-//     res.redirect(`/grounds/${ground._id}`);
-// }))
+router.delete('/carts/:id', catchAsync(async(req, res) => {
+    const { id } = req.params;
+    await Cart.findByIdAndDelete(id);
+    req.flash('success', 'Successfully deleted item from the cart')
+    res.redirect('/carts');
+}))
+
+module.exports = router;

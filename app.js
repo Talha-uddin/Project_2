@@ -24,6 +24,7 @@ const groundRoutes = require('./routes/grounds')
 const reviewRoutes = require('./routes/review');
 const eshopRoutes = require('./routes/e_shop')
 const cartRoutes = require('./routes/cart');
+const wishlistRoutes = require('./routes/wishlist')
 const catchAsync = require('./utils/catchAsync');
 
 
@@ -33,9 +34,11 @@ mongoose.connect('mongodb://localhost:27017/white-soxs')
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "conncetion error: "));
 db.once('open', () => {
-    console.log("Database connected!")
-})
-
+        console.log("Database connected!")
+    })
+    // const Publishable_Key = pk_test_51MO7XyBYCIbILnbeNkZZ1suERyMzvsnWtb1e14G0WXWHcSaGZK0uNUbPNQNyOkzIOcOJCWsBLkMyfY1UUy5LNtmy00UdTL7eGI
+    // const SECRET_KEY = sk_test_51MO7XyBYCIbILnbeadoY4JL3faRxWL3Unype9wGDPd41pO9NhflOzEZbeLgAhh0wGuaBEP1OsCouKAt0rBmNIkPo002Kfyoutsrs
+    // const stripe = require('stripe')(SECRET_KEY)
 const app = express();
 
 app.engine('ejs', ejsMate)
@@ -89,6 +92,7 @@ app.use('/grounds/:id/books', bookRoutes);
 app.use('/', reviewRoutes)
 app.use('/eshops', eshopRoutes)
 app.use('/', cartRoutes);
+app.use('/', wishlistRoutes)
 
 
 
@@ -102,8 +106,43 @@ app.get('/contact', async(req, res) => {
     res.render('contact');
 })
 
+app.get('/payment', async(req, res) => {
+    res.render('payment', {})
+})
 
 
+app.post('/payment', function(req, res) {
+
+    // Moreover you can take more details from user 
+    // like Address, Name, etc from form 
+    stripe.customers.create({
+            email: req.body.stripeEmail,
+            source: req.body.stripeToken,
+            name: 'Talha Uddin',
+            address: {
+                line1: 'TC 9/4 Old MES colony',
+                postal_code: '3100',
+                city: 'Sylhet',
+                state: 'Sylhet',
+                country: 'Bangladesh',
+            }
+        })
+        .then((customer) => {
+
+            return stripe.charges.create({
+                amount: 7000, // Charing Rs 25 
+                description: 'Web Development Product',
+                currency: 'USD',
+                customer: customer.id
+            });
+        })
+        .then((charge) => {
+            res.send("Success") // If no error occurs 
+        })
+        .catch((err) => {
+            res.send(err) // If some error occurs 
+        });
+})
 
 
 

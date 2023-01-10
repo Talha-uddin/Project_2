@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Book = require('./books');
 const Review = require('./review')
 const Schema = mongoose.Schema;
+const Wishlist = require('./wishlist')
 
 
 
@@ -11,6 +12,17 @@ const GroundsSchema = new Schema({
         url: String,
         filename: String
     }],
+    geometry: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            required: true
+        },
+        coordinates: {
+            type: [Number],
+            required: true
+        }
+    },
     price: Number,
     description: String,
     location: String,
@@ -27,6 +39,10 @@ const GroundsSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Book',
     }],
+    wishlist: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Wishlist'
+    }]
 });
 
 GroundsSchema.post('findOneAndDelete', async function(doc) {

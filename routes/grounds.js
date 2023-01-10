@@ -5,6 +5,9 @@ const catchAsync = require('../utils/catchAsync')
 const { groundSchema } = require('../schemas.js')
 const { isLoggedIn, isAuthor, validateGround } = require('../midddleware')
 const multer = require('multer');
+const mapBoxToken = process.env.MAPBOX_TOKEN;
+const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding")
+const geocoder = mbxGeocoding({ accessToken: mapBoxToken })
 const { storage } = require('../cloudinary');
 const upload = multer({ storage });
 
@@ -30,8 +33,12 @@ router.get('/new', isLoggedIn, (req, res) => {
 })
 
 router.post('/', isLoggedIn, upload.array('image'), validateGround, catchAsync(async(req, res, next) => {
-
+    const geoData = await geocoder.forwardGeocode({
+        query: req.body.ground.location,
+        limit: 1
+    }).send()
     const ground = new Ground(req.body.ground);
+    ground.geometry = geoData.body.features[0].geometry;
     ground.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
     ground.author = req.user._id;
     await ground.save();

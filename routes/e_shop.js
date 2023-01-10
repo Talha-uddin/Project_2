@@ -56,7 +56,7 @@ router.get('/:id/edit', isLoggedIn, catchAsync(async(req, res) => {
     res.render('eshops/edit', { eshop })
 }))
 
-router.put('/:id', isLoggedIn, isAuthorE, upload.array('image'), catchAsync(async(req, res) => {
+router.put('/:id', isLoggedIn, upload.array('image'), catchAsync(async(req, res) => {
     const { id } = req.params;
     const eshop = await E_shop.findByIdAndUpdate(id, {...req.body.eshop })
     const imges = req.files.map(f => ({ url: f.path, filename: f.filename }))
@@ -66,7 +66,7 @@ router.put('/:id', isLoggedIn, isAuthorE, upload.array('image'), catchAsync(asyn
     res.redirect(`/eshops/${eshop._id}`)
 }))
 
-router.delete('/:id', isLoggedIn, isAuthorE, catchAsync(async(req, res) => {
+router.delete('/:id', isLoggedIn, catchAsync(async(req, res) => {
     const { id } = req.params;
     await E_shop.findByIdAndDelete(id);
     req.flash('success', 'Successfully Deleted The Product..');
